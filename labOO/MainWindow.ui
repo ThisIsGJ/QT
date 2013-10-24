@@ -15,9 +15,7 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="1">
-    <widget class="GLWidget" name="widget" native="true">
-     <zorder>frame</zorder>
-    </widget>
+    <widget class="GLWidget" name="widget" native="true"/>
    </item>
    <item row="0" column="0">
     <widget class="QFrame" name="frame">
@@ -96,7 +94,7 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>270</y>
+        <y>260</y>
         <width>181</width>
         <height>401</height>
        </rect>
@@ -149,7 +147,7 @@
         <double>-99.989999999999995</double>
        </property>
        <property name="singleStep">
-        <double>0.010000000000000</double>
+        <double>1.000000000000000</double>
        </property>
       </widget>
       <widget class="QDoubleSpinBox" name="set_10">
@@ -200,7 +198,7 @@
         <double>-99.989999999999995</double>
        </property>
        <property name="singleStep">
-        <double>0.010000000000000</double>
+        <double>1.000000000000000</double>
        </property>
       </widget>
       <widget class="QDoubleSpinBox" name="set_20">
@@ -248,7 +246,7 @@
         <double>-99.989999999999995</double>
        </property>
        <property name="singleStep">
-        <double>0.010000000000000</double>
+        <double>1.000000000000000</double>
        </property>
        <property name="value">
         <double>1.000000000000000</double>
@@ -313,57 +311,110 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="label_2">
        <property name="geometry">
         <rect>
-         <x>0</x>
-         <y>290</y>
+         <x>20</x>
+         <y>280</y>
          <width>161</width>
          <height>19</height>
         </rect>
        </property>
        <property name="text">
-        <string>The Order of Sequence:</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>340</y>
-         <width>31</width>
-         <height>31</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_2">
-       <property name="geometry">
-        <rect>
-         <x>60</x>
-         <y>340</y>
-         <width>31</width>
-         <height>31</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_3">
-       <property name="geometry">
-        <rect>
-         <x>110</x>
-         <y>340</y>
-         <width>31</width>
-         <height>31</height>
-        </rect>
+        <string>The Order of Martix:</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_3">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>20</x>
          <y>310</y>
          <width>141</width>
          <height>20</height>
         </rect>
        </property>
        <property name="text">
-        <string> first    second   third</string>
+        <string> first    second     third</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="o1">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>330</y>
+         <width>41</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+       <property name="value">
+        <number>0</number>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="o2">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>330</y>
+         <width>41</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+       <property name="value">
+        <number>0</number>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="o3">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>330</y>
+         <width>41</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+       <property name="value">
+        <number>0</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>56</x>
+         <y>330</y>
+         <width>16</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>x</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>330</y>
+         <width>16</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>x</string>
        </property>
       </widget>
      </widget>
@@ -543,8 +594,8 @@ p, li { white-space: pre-wrap; }
    <slot>transferShape()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>85</x>
-     <y>343</y>
+     <x>97</x>
+     <y>382</y>
     </hint>
     <hint type="destinationlabel">
      <x>197</x>
@@ -575,8 +626,8 @@ p, li { white-space: pre-wrap; }
    <slot>storeMat()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>105</x>
-     <y>330</y>
+     <x>112</x>
+     <y>352</y>
     </hint>
     <hint type="destinationlabel">
      <x>199</x>
@@ -591,8 +642,8 @@ p, li { white-space: pre-wrap; }
    <slot>cleanStack()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>178</x>
-     <y>334</y>
+     <x>190</x>
+     <y>352</y>
     </hint>
     <hint type="destinationlabel">
      <x>197</x>

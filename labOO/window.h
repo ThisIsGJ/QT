@@ -3,7 +3,6 @@
 //	FrameWork for OpenGL application under QT
 //  Course title: Introduction Computer Graphics
 //-------------------------------------------------------------------------------------------
-gjgjgjggjgj
 #ifndef WINDOW_H
 #define WINDOW_H
 
@@ -31,8 +30,12 @@ private:
     Ui::frmMain *ui;
 
     int number;\
+    int s1;
+    int s2;
+    int s3;
     QStack<QTransform> stack; 
     QStack<QTransform> stackBack;
+    void getSeq();
 
 private slots:
     void aboutBut();
@@ -40,6 +43,7 @@ private slots:
     void storeMat();
     void transferShape();
     void cleanStack();
+
 
 
 protected:

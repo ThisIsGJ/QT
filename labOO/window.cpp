@@ -92,16 +92,45 @@ void Window::pressmebut()
     std::cerr << "Don't press me!";
 }
 
-/*
- *ui->set_00->value(),ui->set_01->value(),ui->set_02->value(),
-          ui->set_10->value(),ui->set_11->value(),ui->set_12->value(),
-          ui->set_20->value(),ui->set_21->value(),ui->set_22->value()
-*/
+
 void Window::transferShape()
 {
+    getSeq();
+    int i = 1;
+    stackBack = stack;
 
-    ui->widget->transfer(stack.top());
-    stack.pop();
+    if(s1 != 0){
+        if(i = s1){
+             ui->widget->transfer(stackBack.top());
+        }else{
+
+            stackBack.pop();
+            i++;
+        }
+    }
+
+    i = 1;
+    stackBack = stack;
+    if(s2 != 0){
+        if(i = s2){
+             ui->widget->transfer(stackBack.top());
+        }else{
+            stackBack.pop();
+            i++;
+        }
+    }
+
+    i = 1;
+    stackBack = stack;
+    if(s3 != 0){
+        if(i = s3){
+             ui->widget->transfer(stackBack.top());
+        }else{
+            stackBack.pop();
+            i++;
+        }
+    }
+
 }
 
 
@@ -112,7 +141,6 @@ void Window::storeMat()
   // QString str= QString::number(number);
    ui->textEdit->insertPlainText("Matrix is saved");
   // stack.push()
-
    QTransform myMat(ui->set_00->value(),ui->set_01->value(),ui->set_02->value(),
                     ui->set_10->value(),ui->set_11->value(),ui->set_12->value(),
                     ui->set_20->value(),ui->set_21->value(),ui->set_22->value());
@@ -124,8 +152,29 @@ void Window::storeMat()
 void Window::cleanStack()
 {
     stack.clear();
+
 }
 
+void Window::getSeq()
+{
+    s1 = ui->o1->value();
+    s2 = ui->o2->value();
+    s3 = ui->o3->value();
+
+    /*
+    if(s1 == 0 && (s2 != 0 || s3 != 0))
+    {
+        qDebug() << "Error, you have to put the number of first matrix ";
+
+    }else if(s1 !== 0 && s2 == 0 && s3 !=0 )
+    {
+        qDebug << "Error, you have to put the the number of second matrix";
+    }else (s1 = 0 && s2 ==0 && s3 != 0){}
+
+    */
+
+
+}
 
 
 
