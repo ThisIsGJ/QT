@@ -321,107 +321,11 @@ p, li { white-space: pre-wrap; }
         <string>The Order of Martix:</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_3">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>310</y>
-         <width>141</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string> first    second     third</string>
-       </property>
-      </widget>
-      <widget class="QSpinBox" name="o1">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>330</y>
-         <width>41</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <property name="minimum">
-        <number>0</number>
-       </property>
-       <property name="maximum">
-        <number>99</number>
-       </property>
-       <property name="value">
-        <number>0</number>
-       </property>
-      </widget>
-      <widget class="QSpinBox" name="o2">
-       <property name="geometry">
-        <rect>
-         <x>70</x>
-         <y>330</y>
-         <width>41</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <property name="minimum">
-        <number>0</number>
-       </property>
-       <property name="maximum">
-        <number>99</number>
-       </property>
-       <property name="value">
-        <number>0</number>
-       </property>
-      </widget>
-      <widget class="QSpinBox" name="o3">
-       <property name="geometry">
-        <rect>
-         <x>130</x>
-         <y>330</y>
-         <width>41</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <property name="minimum">
-        <number>0</number>
-       </property>
-       <property name="maximum">
-        <number>99</number>
-       </property>
-       <property name="value">
-        <number>0</number>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_4">
-       <property name="geometry">
-        <rect>
-         <x>56</x>
-         <y>330</y>
-         <width>16</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>x</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_5">
-       <property name="geometry">
-        <rect>
-         <x>120</x>
-         <y>330</y>
-         <width>16</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>x</string>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="lineEdit">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>360</y>
+         <y>310</y>
          <width>161</width>
          <height>21</height>
         </rect>

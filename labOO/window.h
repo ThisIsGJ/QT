@@ -35,8 +35,7 @@ private:
     int s3;
     QStack<QTransform> stack; 
     QStack<QTransform> stackBack;
-    QList<int> mSeq;
-    void getSeq();
+    QStringList sequence;
 
 private slots:
     void aboutBut();

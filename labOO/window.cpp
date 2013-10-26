@@ -92,11 +92,11 @@ void Window::pressmebut()
     std::cerr << "Don't press me!";
 }
 
-
 void Window::transferShape()
 {
-    getSeq();
-    if(s1 == s2 == s3 == 0)
+    getTheMultiplySeq();
+    stackBack = stack;
+    if(sequence.length() == 2)
     {
         if(!stack.isEmpty()){
             cleanStack();
@@ -104,46 +104,28 @@ void Window::transferShape()
         storeMat();
         ui->widget->transfer(stack.top());
         cleanStack();
+    }else if(stack.isEmpty())
+    {
+        QString title="QtOpenGl";
+        QString mess = "Please store the matrix first!";
+        QMessageBox::information( this, title, mess, QMessageBox::Ok );
+    }
+    else{
 
-
-    }else{
-        int i = 1;
-        stackBack = stack;
-
-        if(s1 != 0){
-            if(i = s1){
-                 ui->widget->transfer(stackBack.top());
-            }else{
-
+        int count = 1;
+        for(int i = 1; i < (sequence.length()-1); i++)
+        {
+            while(count < sequence.value(i).toInt())
+            {
                 stackBack.pop();
                 i++;
             }
-        }
-
-        i = 1;
-        stackBack = stack;
-        if(s2 != 0){
-            if(i = s2){
-                 ui->widget->transfer(stackBack.top());
-            }else{
-                stackBack.pop();
-                i++;
-            }
-        }
-
-        i = 1;
-        stackBack = stack;
-        if(s3 != 0){
-            if(i = s3){
-                 ui->widget->transfer(stackBack.top());
-            }else{
-                stackBack.pop();
-                i++;
-            }
+            ui->widget->transfer(stackBack.top());
+            stackBack = stack;
+            count = 1;
         }
     }
 }
-
 
 
 
@@ -164,21 +146,12 @@ void Window::cleanStack()
 {
     stack.clear();
     ui->textEdit->insertPlainText("stack is cleaned");
-    getTheMultiplySeq();
 
-}
-
-void Window::getSeq()
-{
-    s1 = ui->o1->value();
-    s2 = ui->o2->value();
-    s3 = ui->o3->value();
 }
 
 void Window::getTheMultiplySeq()
 {
-   // qDebug() <<  ui->lineEdit->text() << sizeof(mSeq);
-
+    sequence = ui->lineEdit->text().split("");
 }
 
 
