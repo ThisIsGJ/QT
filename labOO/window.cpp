@@ -96,41 +96,52 @@ void Window::pressmebut()
 void Window::transferShape()
 {
     getSeq();
-    int i = 1;
-    stackBack = stack;
+    if(s1 == s2 == s3 == 0)
+    {
+        if(!stack.isEmpty()){
+            cleanStack();
+        }
+        storeMat();
+        ui->widget->transfer(stack.top());
+        cleanStack();
 
-    if(s1 != 0){
-        if(i = s1){
-             ui->widget->transfer(stackBack.top());
-        }else{
 
-            stackBack.pop();
-            i++;
+    }else{
+        int i = 1;
+        stackBack = stack;
+
+        if(s1 != 0){
+            if(i = s1){
+                 ui->widget->transfer(stackBack.top());
+            }else{
+
+                stackBack.pop();
+                i++;
+            }
+        }
+
+        i = 1;
+        stackBack = stack;
+        if(s2 != 0){
+            if(i = s2){
+                 ui->widget->transfer(stackBack.top());
+            }else{
+                stackBack.pop();
+                i++;
+            }
+        }
+
+        i = 1;
+        stackBack = stack;
+        if(s3 != 0){
+            if(i = s3){
+                 ui->widget->transfer(stackBack.top());
+            }else{
+                stackBack.pop();
+                i++;
+            }
         }
     }
-
-    i = 1;
-    stackBack = stack;
-    if(s2 != 0){
-        if(i = s2){
-             ui->widget->transfer(stackBack.top());
-        }else{
-            stackBack.pop();
-            i++;
-        }
-    }
-
-    i = 1;
-    stackBack = stack;
-    if(s3 != 0){
-        if(i = s3){
-             ui->widget->transfer(stackBack.top());
-        }else{
-            stackBack.pop();
-            i++;
-        }
-    }
-
 }
 
 
@@ -152,6 +163,8 @@ void Window::storeMat()
 void Window::cleanStack()
 {
     stack.clear();
+    ui->textEdit->insertPlainText("stack is cleaned");
+    getTheMultiplySeq();
 
 }
 
@@ -160,21 +173,14 @@ void Window::getSeq()
     s1 = ui->o1->value();
     s2 = ui->o2->value();
     s3 = ui->o3->value();
+}
 
-    /*
-    if(s1 == 0 && (s2 != 0 || s3 != 0))
-    {
-        qDebug() << "Error, you have to put the number of first matrix ";
-
-    }else if(s1 !== 0 && s2 == 0 && s3 !=0 )
-    {
-        qDebug << "Error, you have to put the the number of second matrix";
-    }else (s1 = 0 && s2 ==0 && s3 != 0){}
-
-    */
-
+void Window::getTheMultiplySeq()
+{
+   // qDebug() <<  ui->lineEdit->text() << sizeof(mSeq);
 
 }
+
 
 
 

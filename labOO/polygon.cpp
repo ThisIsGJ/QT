@@ -39,3 +39,5 @@ bool polygon::insideZeroCentredShape(int x, int y)
 
     return (distFromCentre <= mRadius);
 }
+
+

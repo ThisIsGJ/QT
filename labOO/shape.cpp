@@ -107,3 +107,5 @@ void shape::getMyMat(QTransform tMyMat)
 {
      myMat = myMat * tMyMat;
 }
+
+

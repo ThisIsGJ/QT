@@ -13,10 +13,11 @@ const double GLWidget::ZMax = 10.0;
 GLWidget::GLWidget(QWidget *parent)
     : QGLWidget(parent),
       mClickLocationX(0),
-      mClickLocationY(0),
-      sides(3),
+      mClickLocationY(0),      
       mShapeColour(255, 0, 0),
-      mHighlightColour(0, 0, 0)
+      mHighlightColour(0, 0, 0),
+      sides(3),
+      clickedShape(false)
 {
 
 }
@@ -104,6 +105,7 @@ void GLWidget::mousePressEvent(QMouseEvent* event)
             if(currentShape->inside(mClickLocationX, height()-mClickLocationY))
             {
                 mSelectedShape = currentShape;
+                clickedShape = true;
                 updateGL();
                 return;
             }
@@ -197,12 +199,16 @@ void GLWidget::newPolygon()
 
     //Add it to the list of shapes
     mShapes.push_back(newPolygon);
-
     updateGL();
 }
 
 void GLWidget::sidesChange(int x){
     sides = x;
+    /*
+    if(clickedShape)
+    {
+        updateGL();
+    }*/
 }
 
 
@@ -210,7 +216,6 @@ void GLWidget::transfer(QTransform myMat)
 {
     mSelectedShape->getMyMat(myMat);
     updateGL();
-
 }
 
 

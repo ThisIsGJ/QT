@@ -35,6 +35,7 @@ private:
     int s3;
     QStack<QTransform> stack; 
     QStack<QTransform> stackBack;
+    QList<int> mSeq;
     void getSeq();
 
 private slots:
@@ -43,6 +44,7 @@ private slots:
     void storeMat();
     void transferShape();
     void cleanStack();
+    void getTheMultiplySeq();
 
 
 
