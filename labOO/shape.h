@@ -26,6 +26,7 @@ public:
     bool inside(int x, int y);
 
     void getMyMat(QTransform myMat);
+    void changeColor(QColor color);
 
 private:
     //This is a pure virtual function (indicated by = 0), which is defined by the

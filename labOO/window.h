@@ -46,7 +46,9 @@ private slots:
     void transferShape();
     void cleanStack();
     void getTheMultiplySeq();
-
+    void setRed();
+    void setGreen();
+    void setBlue();
 
 
 protected:

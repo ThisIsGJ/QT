@@ -219,6 +219,11 @@ void GLWidget::transfer(QTransform myMat)
 }
 
 
+void GLWidget::setColor(QColor color)
+{
+    mSelectedShape->changeColor(color);
+    updateGL();
+}
 
 
 

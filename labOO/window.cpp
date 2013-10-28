@@ -98,12 +98,10 @@ void Window::transferShape()
     stackBack = stack;
     if(sequence.value(0) == "")
     {
-        if(!stack.isEmpty()){
-            cleanStack();
-        }
-        storeMat();
-        ui->widget->transfer(stack.top());
-        cleanStack();
+        QTransform currentMat(ui->set_00->value(),ui->set_01->value(),ui->set_02->value(),
+                         ui->set_10->value(),ui->set_11->value(),ui->set_12->value(),
+                         ui->set_20->value(),ui->set_21->value(),ui->set_22->value());
+        ui->widget->transfer(currentMat);
 
     }else if(stack.isEmpty())
     {
@@ -139,9 +137,11 @@ void Window::transferShape()
                 count = 1;
                 }
         }else{
+
             QString title="QtOpenGl";
             QString mess = "The order you have given have some problem!Please try again!";
             QMessageBox::information( this, title, mess, QMessageBox::Ok );
+            ok = true;
         }
 
      }
@@ -175,8 +175,23 @@ void Window::getTheMultiplySeq()
     sequence = ui->lineEdit->text().split(",");
 }
 
+void Window::setRed()
+{
+    QColor color = "red";
+    ui->widget->setColor(color);
+}
 
+void Window::setGreen()
+{
+    QColor color = "green";
+     ui->widget->setColor(color);
+}
 
+void Window::setBlue()
+{
+    QColor color = "blue";
+     ui->widget->setColor(color);
+}
 
 
 

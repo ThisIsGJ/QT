@@ -108,4 +108,11 @@ void shape::getMyMat(QTransform tMyMat)
      myMat = myMat * tMyMat;
 }
 
+void shape::changeColor(QColor color)
+{
+    mNormalColour = color;
+}
+
+
+
 

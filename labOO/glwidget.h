@@ -23,6 +23,7 @@ public:
     GLWidget(QWidget *parent = 0);
 
     void transfer(QTransform myMat);
+    void setColor(QColor color);
 
 protected:
     //This is called before the first call to paintGL() or resizeGL()
