@@ -33,6 +33,8 @@ private:
     int s1;
     int s2;
     int s3;
+    int size;
+    bool ok;
     QStack<QTransform> stack; 
     QStack<QTransform> stackBack;
     QStringList sequence;

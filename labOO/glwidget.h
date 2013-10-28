@@ -52,7 +52,6 @@ private:
     int mClickLocationX;
     int mClickLocationY;
     int sides;
-    bool clickedShape;
 
     QColor mShapeColour;
     QColor mHighlightColour;

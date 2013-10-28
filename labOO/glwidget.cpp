@@ -16,8 +16,7 @@ GLWidget::GLWidget(QWidget *parent)
       mClickLocationY(0),      
       mShapeColour(255, 0, 0),
       mHighlightColour(0, 0, 0),
-      sides(3),
-      clickedShape(false)
+      sides(3)
 {
 
 }
@@ -104,8 +103,7 @@ void GLWidget::mousePressEvent(QMouseEvent* event)
             //(note that "y" is different between QT and openGL)
             if(currentShape->inside(mClickLocationX, height()-mClickLocationY))
             {
-                mSelectedShape = currentShape;
-                clickedShape = true;
+                mSelectedShape = currentShape;              
                 updateGL();
                 return;
             }
@@ -204,18 +202,20 @@ void GLWidget::newPolygon()
 
 void GLWidget::sidesChange(int x){
     sides = x;
-    /*
-    if(clickedShape)
-    {
-        updateGL();
-    }*/
 }
 
 
 void GLWidget::transfer(QTransform myMat)
 {
-    mSelectedShape->getMyMat(myMat);
-    updateGL();
+    if(mSelectedShape)
+    {
+        mSelectedShape->getMyMat(myMat);
+        updateGL();
+    }else{
+        QString title="QtOpenGl";
+        QString mess = "Please select a shape.";
+        QMessageBox::information( this, title, mess, QMessageBox::Ok );
+    }
 }
 
 

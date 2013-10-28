@@ -10,7 +10,7 @@
 //------------------------------------------------------------------------------------
 // Creates and initializes the main window for application
 //------------------------------------------------------------------------------------
-Window::Window(QWidget *parent):QDialog(parent),number(1)
+Window::Window(QWidget *parent):QDialog(parent),number(1),size(0),ok(true)
 {
 	//Setup application interface. Creates all the required components and sliders.
     ui = new Ui::frmMain;
@@ -96,7 +96,7 @@ void Window::transferShape()
 {
     getTheMultiplySeq();
     stackBack = stack;
-    if(sequence.length() == 2)
+    if(sequence.value(0) == "")
     {
         if(!stack.isEmpty()){
             cleanStack();
@@ -104,40 +104,61 @@ void Window::transferShape()
         storeMat();
         ui->widget->transfer(stack.top());
         cleanStack();
+
     }else if(stack.isEmpty())
     {
         QString title="QtOpenGl";
         QString mess = "Please store the matrix first!";
         QMessageBox::information( this, title, mess, QMessageBox::Ok );
+
     }
     else{
+        int test = 0;
 
-        int count = 1;
-        for(int i = 1; i < (sequence.length()-1); i++)
+        while(test < sequence.length())
         {
-            while(count < sequence.value(i).toInt())
+            if(sequence.value(test).toInt() > size || sequence.value(test).toInt() == 0)
             {
-                stackBack.pop();
-                i++;
+                ok = false;
+
             }
-            ui->widget->transfer(stackBack.top());
-            stackBack = stack;
-            count = 1;
+            test++;
         }
-    }
+        if(ok)
+        {
+            int count = 1;
+            for(int i = 0; i < sequence.length(); i++)
+            {
+                while(count < sequence.value(i).toInt())
+                {
+                    stackBack.pop();
+                    count++;
+                }
+                ui->widget->transfer(stackBack.top());
+                stackBack = stack;
+                count = 1;
+                }
+        }else{
+            QString title="QtOpenGl";
+            QString mess = "The order you have given have some problem!Please try again!";
+            QMessageBox::information( this, title, mess, QMessageBox::Ok );
+        }
+
+     }
 }
 
 
 
 void Window::storeMat()
 {
-  // QString str= QString::number(number);
-   ui->textEdit->insertPlainText("Matrix is saved");
-  // stack.push()
+
+   ui->textEdit->append("Matrix is saved.");
+
    QTransform myMat(ui->set_00->value(),ui->set_01->value(),ui->set_02->value(),
                     ui->set_10->value(),ui->set_11->value(),ui->set_12->value(),
                     ui->set_20->value(),ui->set_21->value(),ui->set_22->value());
-   stack.push(myMat);
+   stack.push_front(myMat);
+   size++;
 
 }
 
@@ -145,13 +166,13 @@ void Window::storeMat()
 void Window::cleanStack()
 {
     stack.clear();
-    ui->textEdit->insertPlainText("stack is cleaned");
+    ui->textEdit->append("Stack is cleaned");
 
 }
 
 void Window::getTheMultiplySeq()
 {
-    sequence = ui->lineEdit->text().split("");
+    sequence = ui->lineEdit->text().split(",");
 }
 
 
