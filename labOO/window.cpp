@@ -43,7 +43,7 @@ void Window::aboutBut()
 //bool Window::checkData(QString tempStr, double *num)
 //{
 //    bool validate;
-////no error message
+//no error message
 //    *num = tempStr.toDouble(&validate);
 //    if (validate == false) *num =0.0;
 //    return validate;
@@ -139,7 +139,7 @@ void Window::transferShape()
         }else{
 
             QString title="QtOpenGl";
-            QString mess = "The order you have given have some problem!Please try again!";
+            QString mess = "The order you have entered have some problem!Please try again!";
             QMessageBox::information( this, title, mess, QMessageBox::Ok );
             ok = true;
         }

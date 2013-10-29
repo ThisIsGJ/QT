@@ -13,10 +13,10 @@ const double GLWidget::ZMax = 10.0;
 GLWidget::GLWidget(QWidget *parent)
     : QGLWidget(parent),
       mClickLocationX(0),
-      mClickLocationY(0),      
-      mShapeColour(255, 0, 0),
-      mHighlightColour(0, 0, 0),
-      sides(3)
+      mClickLocationY(0),
+      sides(3),
+      mShapeColour(255, 0, 0),      
+      mHighlightColour(0, 0, 0)
 {
 
 }
@@ -212,6 +212,7 @@ void GLWidget::transfer(QTransform myMat)
         mSelectedShape->getMyMat(myMat);
         updateGL();
     }else{
+
         QString title="QtOpenGl";
         QString mess = "Please select a shape.";
         QMessageBox::information( this, title, mess, QMessageBox::Ok );
@@ -221,8 +222,16 @@ void GLWidget::transfer(QTransform myMat)
 
 void GLWidget::setColor(QColor color)
 {
-    mSelectedShape->changeColor(color);
-    updateGL();
+    if(mSelectedShape)
+    {
+        mSelectedShape->changeColor(color);
+        updateGL();
+    }else{
+        QString title="QtOpenGl";
+        QString mess = "Please select a shape.";
+        QMessageBox::information( this, title, mess, QMessageBox::Ok );
+    }
+
 }
 
 
